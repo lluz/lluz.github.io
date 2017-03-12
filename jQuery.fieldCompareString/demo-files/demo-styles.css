@@ -33,6 +33,13 @@ a:focus{
   color: #000;
 }
 
+input,
+input:focus,
+textarea,
+textarea:focus{
+  outline: none;
+}
+
 .d-wrap{
   display: flex;
   width:100%;
