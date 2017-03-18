@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <title>jQuery Field Compare String</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="theme-color" content="#454e8c" />
+
+  <meta property="og:locale" content="en_GB" />
+
+  <meta property="og:title" content="jQuery Field Compare String" />
+  <meta property="og:site_name" content="jQuery Field Compare String" />
+  <meta property="og:url" content="https://lluz.github.io/jQuery.fieldCompareString" />
+  <meta property="og:description" content="jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
+
+  <meta name="Author" content="UXD Lda" />
+  <link rel="canonical" href="http://www.uxd.pt" />
+  <meta name="description" content="jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
+  <meta name="keywords" content="jQuery, compare, form field, input, textarea, text string" />
+  
+  <!-- Plugin styles -->
+  <link type="text/css" rel="stylesheet" href="css/jquery.fieldCompareString.min.css?v=1.0.0" />
+
+  <!-- Demo styles -->
+  <link type="text/css" rel="stylesheet" href="demo-files/demo-styles.css?v=1.0.0" />
+
+</head>
+<body>
+  <div class="d-wrap">
+
+    <header>
+      <div class="d-i">
+        <h1>jQuery Field Compare String</h1>
+        <h2>Compare input or textarea value to a text string</h2>
+      </div>
+    </header>
+
+    <main>
+      <div class="d-i">
+
+        <div class="d-main-repo">
+          <a href="https://github.com/lluz/jquery-field-compare-string/blob/master/LICENSE">
+            <img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" />
+          </a>
+          <a href="https://github.com/lluz/jquery-field-compare-string/releases">
+            <img alt="Latest Version" src="https://img.shields.io/github/release/lluz/jquery-field-compare-string.svg?style=flat-square" />
+          </a>
+        </div>
+
+        <div class="d-main-wrap">
+
+          <p class="d-p-lead">
+            A jQuery plugin for <strong class="d-hl-1">live comparison</strong> between the
+            typed value of an <strong class="d-hl-1">input[type=text]</strong> or <strong class="d-hl-1">textarea</strong>
+            form fields and the <strong class="d-hl-1">text string</strong> contained by a specified html element.
+            It presents feedback on the transcription progress and can also protect the form field from copy-paste and
+            drag-drop events (optional feature) to ensure that the user is required to type in the exact reference text string.
+            The comparison is case-sensitive so the typed text has to be exact to trigger the success message.
+          </p>
+
+          <h3>Demo 1 <span>. default options</span></h3>
+
+          <p class="d-tip-1">
+            <strong>Tip!</strong>
+            <span>
+              Type in the <strong>bold</strong> text preceding each form field.
+            </span>
+          </p>
+
+          <aside class="d-playbox">
+            
+            <!-- Plugin HTML begin -->
+            <div class="jfcs-wrapper">
+
+              <!-- Reference text string container -->
+              <div class="jfcs-reference">
+                <p>
+                  I declare such and such.
+                </p>
+              </div>
+
+              <!-- Form field container -->
+              <div class="jfcs-field">
+                <input type="text" id="editable-input-1" />
+              </div>
+
+            </div>
+            <!-- Plugin HTML end -->
+
+          </aside>
+
+          <aside class="d-playbox">
+
+            <!--
+              Reference text string OUTSIDE the regular container
+              (can be placed anywhere in the document because it will be called by its ID)
+            -->
+            <span id="reference-text-2">
+              I also declare this and this.
+            </span>
+
+            <!-- Plugin HTML begin -->
+            <div class="jfcs-wrapper">
+
+              <!-- Form field container -->
+              <div class="jfcs-field">
+                <textarea id="editable-input-2" cols="30" rows="4"></textarea>
+              </div>
+
+            </div>
+            <!-- Plugin HTML end -->
+
+          </aside>
+
+          <h3>Demo 2 <span>. copy-paste / drag-drop protection</span></h3>
+
+          <p class="d-tip-1">
+            <strong>Tip!</strong>
+            <span>
+              Try to <strong>copy-paste</strong> or <strong>drag-drop</strong> some text into the form field.
+            </span>
+          </p>
+
+          <aside class="d-playbox">
+            
+            <!-- Plugin HTML begin -->
+            <div class="jfcs-wrapper">
+
+              <!-- Reference text string container -->
+              <div class="jfcs-reference">
+                <p>
+                  I agree with the terms of this contract.
+                </p>
+              </div>
+
+              <!-- Form field container -->
+              <div class="jfcs-field">
+                <input type="text" id="editable-input-3" />
+              </div>
+
+            </div>
+            <!-- Plugin HTML end -->
+
+          </aside>
+
+          <h3>Demo 3 <span>. custom text for validation messages</span></h3>
+
+          <p class="d-tip-1">
+            <strong>Tip!</strong>
+            <span>
+              Type in the <strong>bold</strong> text and check the validation messages are different from the default.
+            </span>
+          </p>
+
+          <aside class="d-playbox">
+            
+            <!-- Plugin HTML begin -->
+            <div class="jfcs-wrapper">
+
+              <!-- Reference text string container -->
+              <div class="jfcs-reference">
+                <p>
+                  I approve this contract.
+                </p>
+              </div>
+
+              <!-- Form field container -->
+              <div class="jfcs-field">
+                <input type="text" id="editable-input-4" />
+              </div>
+
+            </div>
+            <!-- Plugin HTML end -->
+
+          </aside>
+
+          <h3>How to use</h3>
+
+          <p>
+            1. Add the <strong>CSS file</strong> to the <strong>HEAD</strong> section of your <strong>HTML</strong>.
+          </p>
+
+<pre class="prettyprint">
+&lt;link type="text/css" rel="stylesheet" href="jquery.fieldCompareString.min.css" /&gt;
+</pre>
+
+          <p>
+            2. Add the <strong>JS file</strong> to the end of the <strong>BODY</strong> section of your <strong>HTML</strong> and after jQuery.
+          </p>
+
+<pre class="prettyprint">
+&lt;script src="jquery.fieldCompareString.min.js"&gt;&lt;/script&gt;
+</pre>
+
+          <p>
+            3. Place the HTML code.
+          </p>
+
+<pre class="prettyprint">
+&lt;div class="jfcs-wrapper"&gt;
+
+  &lt;!-- Reference text string container --&gt;
+  &lt;div class="jfcs-reference"&gt;
+    I agree with the terms of this contract.
+  &lt;/div&gt;
+
+  &lt;!-- Form field container --&gt;
+  &lt;div class="jfcs-field"&gt;
+    &lt;input type="text" id="editable-input-1" /&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+          <p>
+            4. Trigger the use of the <strong>jQuery.fieldCompareString</strong> function by a form field selection.
+          </p>
+
+<pre class="prettyprint">
+&lt;script&gt;
+  $(function() {
+    $('#editable-input-1').fieldCompareString();
+  });
+&lt;/script&gt;
+</pre>
+
+
+
+          <h3>Options</h3>
+
+          <p>
+            Here is an example of all the usable options.
+          </p>
+
+<pre class="prettyprint">
+&lt;script&gt;
+  $(function() {
+    $('#editable-input-1').fieldCompareString({
+      compare_to:         '#reference-text-2',    // Specify a reference element anywhere in the page
+      field_protection:   true,                   // Enable the copy-paste / drag-drop protection
+      msg_notok:          'A mistake was made!',  // Override the 'NOT-OK' validation message
+      msg_incomplete:     'It\'s incomplete!',    // Override the 'INCOMPLETE' validation message
+      msg_ok:             'It\'s correct!'        // Override the 'OK' validation message
+    });
+  });
+&lt;/script&gt;
+</pre>
+
+          <p>
+            When using the <strong>"compare_to"</strong> option, you will have to IDentify the reference text HTML element.
+          </p>
+
+<pre class="prettyprint">
+&lt;!-- Reference text string ANYWHERE on the page BODY with its ID --&gt;
+&lt;span id="reference-text-2"&gt;
+  I also declare this and this.
+&lt;/span&gt;
+
+... ...
+
+&lt;div class="jfcs-wrapper"&gt;
+
+  &lt;!-- Form field container --&gt;
+  &lt;div class="jfcs-field"&gt;
+    &lt;input type="text" id="editable-input-2" /&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+
+
+          <h3>Final thoughts</h3>
+
+          <p>
+            Hope this plugin helps you guide your users to transcript whatever text you want them declare on your web application with the confort of live feedback. Any questions or comments can be sent to <a href="mailto:dev@uxd.pt" class="d-js-eaddress">dev--at--uxd--dot--pt</a>
+          </p>
+
+
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="d-i">
+        Copyright &copy; 2017 <a href="https://www.linkedin.com/in/luisluz/" target="_blank">Luis Luz</a> - <a href="http://www.uxd.pt" target="_blank">UXD Lda</a>
+      </div>
+    </footer>
+
+  </div>
+
+    
+
+      
+  
+  <!-- jQuery v1.10.2 or above -->
+  <script src="demo-files/jquery.min.js?v=1.10.2"></script>
+
+  <!-- Syntax Highlighter -->
+  <script src="demo-files/run_prettify.js?v=1.0.0"></script>
+
+  <!-- fieldCompareString plugin -->
+  <script src="js/jquery.fieldCompareString.min.js?v=1.0.0"></script>
+
+  <script type="text/javascript" charset="utf-8">
+  $(function() {
+
+    /*! Default options:
+     *  
+     *  compare_to: '' ---> The reference element ('.jfcs-reference') before the selected field element ('.jfcs-field')
+     *  field_protection: false,
+     *  msg_notok: 'Your transcript has an error, please correct.',
+     *  msg_incomplete: 'Your transcript is incomplete, please correct.',
+     *  msg_ok: 'Your transcript is correct.'
+     * 
+     */
+
+    $('#editable-input-1').fieldCompareString();
+
+    $('#editable-input-2').fieldCompareString({
+      compare_to: '#reference-text-2'
+    });
+
+    $('#editable-input-3').fieldCompareString({
+      field_protection: true
+    });
+
+    $('#editable-input-4').fieldCompareString({
+      msg_notok: 'A mistake was made!',
+      msg_incomplete: 'It\'s incomplete!',
+      msg_ok: 'It\'s correct!'
+    });
+
+  });
+  </script>
+
+
+  <script type="text/javascript" charset="utf-8">
+  $(function() {
+
+    // email protection
+    var mAddress = $('.d-js-eaddress').html().replace('--at--','@').replace('--dot--','.');
+		jQuery('.d-js-eaddress').html(mAddress);
+
+  });
+  </script>
+
+</body>
+</html>
