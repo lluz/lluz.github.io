@@ -17,19 +17,19 @@
 
   <meta property="og:title" content="jQuery Field Compare String" />
   <meta property="og:site_name" content="jQuery Field Compare String" />
-  <meta property="og:url" content="https://lluz.github.io/jQuery.fieldCompareString" />
-  <meta property="og:description" content="jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
+  <meta property="og:url" content="https://lluz.github.io/jQuery.jFieldCompareString" />
+  <meta property="og:description" content="jFieldCompareString - jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
 
   <meta name="Author" content="UXD Lda" />
   <link rel="canonical" href="http://www.uxd.pt" />
-  <meta name="description" content="jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
+  <meta name="description" content="jFieldCompareString - jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element." />
   <meta name="keywords" content="jQuery, compare, form field, input, textarea, text string" />
   
   <!-- Plugin styles -->
-  <link type="text/css" rel="stylesheet" href="css/jquery.fieldCompareString.min.css?v=1.0.0" />
+  <link type="text/css" rel="stylesheet" href="css/jquery.jFieldCompareString.min.css?v=1.0.1" />
 
   <!-- Demo styles -->
-  <link type="text/css" rel="stylesheet" href="demo-files/demo-styles.css?v=1.0.0" />
+  <link type="text/css" rel="stylesheet" href="demo-files/demo-styles.css?v=1.0.1" />
 
 </head>
 <body>
@@ -38,7 +38,11 @@
     <header>
       <div class="d-i">
         <h1>jQuery Field Compare String</h1>
+        <div class="d-func-name">jFieldCompareString</div>
         <h2>Compare input or textarea value to a text string</h2>
+        <div class="d-dl-btn">
+          <a href="https://lluz.github.io/jquery.jFieldCompareString/dl/jFieldCompareString.zip">Download</a>
+        </div>
       </div>
     </header>
 
@@ -188,7 +192,7 @@
           </p>
 
 <pre class="prettyprint">
-&lt;link type="text/css" rel="stylesheet" href="jquery.fieldCompareString.min.css" /&gt;
+&lt;link type="text/css" rel="stylesheet" href="jquery.jFieldCompareString.min.css" /&gt;
 </pre>
 
           <p>
@@ -196,7 +200,7 @@
           </p>
 
 <pre class="prettyprint">
-&lt;script src="jquery.fieldCompareString.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.jFieldCompareString.min.js"&gt;&lt;/script&gt;
 </pre>
 
           <p>
@@ -220,13 +224,13 @@
 </pre>
 
           <p>
-            4. Trigger the use of the <strong>jQuery.fieldCompareString</strong> function by a form field selection.
+            4. Trigger the use of the <strong>jQuery.jFieldCompareString</strong> function by a form field selection.
           </p>
 
 <pre class="prettyprint">
 &lt;script&gt;
   $(function() {
-    $('#editable-input-1').fieldCompareString();
+    $('#editable-input-1').jFieldCompareString();
   });
 &lt;/script&gt;
 </pre>
@@ -242,7 +246,7 @@
 <pre class="prettyprint">
 &lt;script&gt;
   $(function() {
-    $('#editable-input-1').fieldCompareString({
+    $('#editable-input-1').jFieldCompareString({
       compare_to:         '#reference-text-2',    // Specify a reference element anywhere in the page
       field_protection:   true,                   // Enable the copy-paste / drag-drop protection
       msg_notok:          'A mistake was made!',  // Override the 'NOT-OK' validation message
@@ -280,7 +284,7 @@
           <h3>Final thoughts</h3>
 
           <p>
-            Hope this plugin helps you guide your users to transcript whatever text you want them declare on your web application with the confort of live feedback. Any questions or comments can be sent to <a href="mailto:dev@uxd.pt" class="d-js-eaddress">dev--at--uxd--dot--pt</a>
+            Hope this plugin helps you guide your users to transcript whatever text you want them declare on your web application with the confort of live feedback. Any questions or comments can be sent to <a href="mailto:dev--at--uxd--dot--pt" class="d-js-eaddress">dev--at--uxd--dot--pt</a>
           </p>
 
 
@@ -305,10 +309,10 @@
   <script src="demo-files/jquery.min.js?v=1.10.2"></script>
 
   <!-- Syntax Highlighter -->
-  <script src="demo-files/run_prettify.js?v=1.0.0"></script>
+  <script src="demo-files/run_prettify.js"></script>
 
-  <!-- fieldCompareString plugin -->
-  <script src="js/jquery.fieldCompareString.min.js?v=1.0.0"></script>
+  <!-- jFieldCompareString plugin -->
+  <script src="js/jquery.jFieldCompareString.min.js?v=1.0.1"></script>
 
   <script type="text/javascript" charset="utf-8">
   $(function() {
@@ -323,17 +327,17 @@
      * 
      */
 
-    $('#editable-input-1').fieldCompareString();
+    $('#editable-input-1').jFieldCompareString();
 
-    $('#editable-input-2').fieldCompareString({
+    $('#editable-input-2').jFieldCompareString({
       compare_to: '#reference-text-2'
     });
 
-    $('#editable-input-3').fieldCompareString({
+    $('#editable-input-3').jFieldCompareString({
       field_protection: true
     });
 
-    $('#editable-input-4').fieldCompareString({
+    $('#editable-input-4').jFieldCompareString({
       msg_notok: 'A mistake was made!',
       msg_incomplete: 'It\'s incomplete!',
       msg_ok: 'It\'s correct!'
@@ -347,8 +351,10 @@
   $(function() {
 
     // email protection
-    var mAddress = $('.d-js-eaddress').html().replace('--at--','@').replace('--dot--','.');
-		jQuery('.d-js-eaddress').html(mAddress);
+    $('.d-js-eaddress').each(function(){
+      var mAddress = $(this).html().replace('--at--','@').replace('--dot--','.');
+      $(this).html(mAddress).attr('href', 'mailto:' + mAddress);
+    });
 
   });
   </script>

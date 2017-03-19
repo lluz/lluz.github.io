@@ -10,15 +10,15 @@
  * Project home:
  *   https://github.com/lluz/jquery-field-compare-string
  *
- * Version:  1.0.0
+ * Version:  1.0.1
  *
  */
 
 (function($, window, document, undefined) {
 
-    $.fn.fieldCompareString = function(options) {
+    $.fn.jFieldCompareString = function(options) {
         if ( this === undefined || this.length === 0 || this.length > 1 ) {
-            console.log('jQuery.fieldCompareString() INITIALIZATION ERROR: This is a 1:1 plugin initialization. You need to select only one input/textarea and declare the reference text element with the options property "compare_to". See documentation form more information.');
+            console.log('jQuery.jFieldCompareString() INITIALIZATION ERROR: This is a 1:1 plugin initialization. You need to select only one input/textarea and declare the reference text element with the options property "compare_to". See documentation form more information.');
             return false;
         }
 
@@ -123,7 +123,7 @@
             else {
                 var compareElement = $(options.compare_to);
                 if ( !compareElement.length ) {
-                    console.log('jQuery.fieldCompareString() INITIALIZATION ERROR: You need to declare the reference text element with the options property "compare_to". See documentation form more information.');
+                    console.log('jQuery.jFieldCompareString() INITIALIZATION ERROR: You need to declare the reference text element with the options property "compare_to". See documentation form more information.');
                     return false;
                 }
                 else {
