@@ -1,0 +1,15 @@
+/*!
+ * jQuery Field Compare String
+ * Description: jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element.
+ *
+ * Copyright (c) 2017 Luis Luz - UXD Lda
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Project home:
+ *   https://github.com/lluz/jquery-field-compare-string
+ *
+ * Version:  1.0.2
+ *
+ */.jfcs-wrapper *{box-sizing:border-box}.jfcs-wrapper .jfcs-field{border-right:4px solid transparent;font-size:0}.jfcs-wrapper .jfcs-field.jfcs-field-protection{position:relative}.jfcs-wrapper .jfcs-field.jfcs-field-protection.jfcs-protecting:after{content:'';position:absolute;z-index:1;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.05);cursor:not-allowed}.jfcs-wrapper .jfcs-field.jfcs-field-validation-error{border-right-color:red}.jfcs-wrapper .jfcs-field.jfcs-field-validation-success{border-right-color:green}.jfcs-wrapper .jfcs-field input,.jfcs-wrapper .jfcs-field textarea{width:100%;min-width:100%;max-width:100%;margin:0;padding:6px;border:1px solid #bbb;background:#fff;background-image:none;border-radius:0;-webkit-appearance:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;font-size:16px}.jfcs-wrapper .jfcs-field.jfcs-field-validation-error input,.jfcs-wrapper .jfcs-field.jfcs-field-validation-error textarea{border-color:red}.jfcs-wrapper .jfcs-field.jfcs-field-validation-success input,.jfcs-wrapper .jfcs-field.jfcs-field-validation-success textarea{border-color:green}.jfcs-wrapper .jfcs-validation .jfcs-validation-msg{display:none;padding:7px 0 0 0}.jfcs-wrapper .jfcs-validation .jfcs-validation-msg.jfcs-validation-msg-error{color:red}.jfcs-wrapper .jfcs-validation .jfcs-validation-msg.jfcs-validation-msg-success{color:green}
