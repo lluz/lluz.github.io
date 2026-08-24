@@ -2,7 +2,7 @@
  * jQuery Field Compare String
  * Description: jQuery plugin to compare the value of an input[type=text] or textarea to the string of text contained by an html element.
  *
- * Copyright (c) 2017 Luis Luz - UXD Lda
+ * Copyright (c) 2017-2026 Luis Luz - UXD Lda
  *
  * Licensed under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -10,7 +10,7 @@
  * Project home:
  *   https://github.com/lluz/jquery-field-compare-string
  *
- * Version:  1.0.2
+ * Version:  1.1.0
  *
  */
 
@@ -42,7 +42,7 @@
             return( refStr.indexOf(valueStr) === 0 );
         }
         function stringClean(str){
-            var textString = $.trim(str);
+            var textString = String(str).trim();
             textString = textString.replace(/[\t\n]+/g, ' ').replace(/ +(?= )/g, '').replace(/[´`~^¨<>«»]/g, '');
             return textString;
         }
@@ -107,13 +107,13 @@
 
         if (options) {
 
-            if ( options.msg_notok !== undefined && $.trim( options.msg_notok ) !== '' ) {
+            if ( options.msg_notok !== undefined && String( options.msg_notok ).trim() !== '' ) {
                 validationMsgTextNOTOK = options.msg_notok;
             }
-            if ( options.msg_incomplete !== undefined && $.trim( options.msg_incomplete ) !== '' ) {
+            if ( options.msg_incomplete !== undefined && String( options.msg_incomplete ).trim() !== '' ) {
                 validationMsgTextINCOMPLETE = options.msg_incomplete;
             }
-            if ( options.msg_ok !== undefined && $.trim( options.msg_ok ) !== '' ) {
+            if ( options.msg_ok !== undefined && String( options.msg_ok ).trim() !== '' ) {
                 validationMsgTextOK = options.msg_ok;
             }
             
@@ -142,7 +142,7 @@
                         e.preventDefault();
                     }
                 })
-                .bind('cut copy paste', function (e) {
+                .on('cut copy paste', function (e) {
                     e.preventDefault();
                 });
 
@@ -183,7 +183,7 @@
             var fieldInputValClean = stringClean( fieldInputVal );
             var fieldRefTextElm = $reference;
             var fieldRefTextString = stringClean( fieldRefTextElm.text() );
-            $(this).val( $.trim( fieldInputVal.replace(/ +(?= )/g, '').replace(/[<>«»]/g, '').replace(/(?:(?:\r\n|\r|\n)\s*){2}/gm, '') ) );
+            $(this).val( fieldInputVal.replace(/ +(?= )/g, '').replace(/[<>«»]/g, '').replace(/(?:(?:\r\n|\r|\n)\s*){2}/gm, '').trim() );
             fieldDragProtectionRemove();
             if ( fieldRefTextString.search(fieldInputValClean) !== -1 && stringBeginsWith(fieldRefTextString, fieldInputValClean) && fieldInputValClean !== fieldRefTextString ) {
                 fieldCompareCheck(fieldInputID, '', true);
